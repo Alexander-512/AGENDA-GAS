@@ -1,9 +1,12 @@
-function doGet () {
+const HOJA = SpreadsheetApp.openById('1UGfa7-km9g3EsuBYufYayjSXSVhe-5XlYAUkZb1seh8').getActiveSheet();
 
-    return HtmlService.createTemplateFromFile('web')
-    .evaluate()
-    .setTitle('AGENDA GAS');
+function doGet (datos) {
+    return HtmlService.createTemplateFromFile('web').evaluate().setTitle('AGENDA GAS');
 
+}
+
+function doPost (datos) {
+    return HtmlService.createTemplateFromFile('web').evaluate().setTitle('AGENDA GAS');
 }
 
 function obtenerDatosHTML (nombre) {
@@ -12,7 +15,11 @@ function obtenerDatosHTML (nombre) {
 }
 
 function obtenerContactos() {
-    let hoja = SpreadsheetApp.openById('1UGfa7-km9g3EsuBYufYayjSXSVhe-5XlYAUkZb1seh8').getActiveSheet();
-    let datos = hoja.getDataRange().getValues();
-    return datos;
+    
+    return HOJA.getDataRange().getValues();
+
+}
+
+function insertarContacto (nombre, correo) {
+    HOJA.appendRow ([nombre,correo]);
 }
