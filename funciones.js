@@ -20,6 +20,6 @@ function obtenerContactos() {
 
 }
 
-function insertarContacto (nombre, correo) {
-    HOJA.appendRow ([nombre,correo]);
+function insertarContacto (nombre, apellidos, correo, telf) {
+    HOJA.appendRow ([nombre, apellidos, correo, telf]);
 }
